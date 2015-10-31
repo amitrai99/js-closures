@@ -14,13 +14,12 @@ This is an attempt to clear up several (possible) misunderstandings about closur
 * Closures use memory, but they don't cause memory leaks since JavaScript by itself cleans up its own circular structures that are not referenced. IE memory leaks involving closures are created when it fails to disconnect DOM attribute values that reference closures, thus maintaining references to possibly circular structures.
 
 
-//## Creating closure *without returning* a reference to the inner function
-
-//### Just assign the inner function to a global variable or a variable in another scope.
-//> *Everything* in the function scope is stored including the: 
-//  * outer function arguments
-//  * Variables
-//  * Methods and Objects
+### Creating closure *without returning* a reference to the inner function
+Just assign the inner function to a global variable or a variable in another scope.
+*Everything* in the function scope is stored including the: 
++ outer function arguments
++ Variables
++ Methods and Objects
 
 ```js
 var x1;
@@ -44,9 +43,9 @@ outer1(22);
 //should print 'something 22 say1' because now a closure is created
 x1();
 ```
-//### Assign multiple variables to an inner function
-//> What happens when we assign multiple variables to an inner function by calling the same outer function again?
-//> Every invocation of outer function leads to a completely new closure so every reference is unique and never changed
+### Assign multiple variables to an inner function
+What happens when we assign multiple variables to an inner function by calling the same outer function again?
+Every invocation of outer function leads to a completely new closure so every reference is unique and never changed
 
 ```js
 
